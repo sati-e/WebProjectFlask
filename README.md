@@ -5,7 +5,7 @@ Este projeto é a base de um site católico onde os usuários poderão escrever 
 
 ## Tecnologias utilizadas
 
-- Python 3
+- Python 
 - Flask
 - Flask-MySQLdb / SQLAlchemy
 - HTML e Jinja
