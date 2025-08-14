@@ -5,10 +5,10 @@ from routes import bp
 from forms import *
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "89012a"
+app.config['SECRET_KEY'] = ""
 
 #mysqldatabase
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:S@t1lanh4v.a0484/users'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:senha/users'
 #iniciar database
 #db = SQLAlchemy(app)
 

@@ -1,7 +1,7 @@
 from . import db
 from . import datetime
 
-#xreate table/model
+#create table/model
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
