@@ -8,4 +8,4 @@ Este projeto é a base de um site católico onde os usuários poderão escrever 
 - Python 3
 - Flask
 - Flask-MySQLdb / SQLAlchemy
-- HTML e Jinja2
+- HTML e Jinja
