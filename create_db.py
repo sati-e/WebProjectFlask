@@ -1,0 +1,26 @@
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    passwd='S@t1lanh4v.a0484'
+)
+
+print("connection started")
+
+#create cursor
+dbCursor = connection.cursor()
+
+#create database if not exist
+dbCursor.execute("CREATE DATABASE IF NOT EXISTS users")
+
+#show databases
+dbCursor.execute("SHOW DATABASES")
+
+# close connection
+dbCursor.close()
+connection.close()
+print("connection closed")
+
+for db in dbCursor:
+    print(db)
