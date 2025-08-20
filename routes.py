@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template 
-from forms import LoginForm
+from forms import *
 
 bp = Blueprint('main', __name__)
 
@@ -19,9 +19,25 @@ def login():
         email = email,
         form = form)
 
-@bp.route('/singIn', methods=['GET', 'POST'])
+@bp.route('/signin', methods=['GET', 'POST'])
 def sinIn():
-    return render_template("singIn.html")
+    email = None
+    form = SigninForm()
+
+        #validade form
+    if form.validate_on_submit():
+        email = form.email.data
+        form.name.data = ''
+        form.email.data = ''
+        form.password.data = ''
+        return f"Lofin recebido para{email}" # Placeholder para teste
+
+    return render_template('Signin.html',
+        email = email,
+        form = form)
+
+
+
 
 #invalid url error
 @bp.errorhandler(404)

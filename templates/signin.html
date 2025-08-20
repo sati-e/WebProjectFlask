@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../styles/clear.css">
+
+    <title>Sign</title>
+</head>
+<body>
+    <div class="header">
+        <div class="icone">
+        </div>
+    </div>
+    <div class="conteiner">       
+        <h1>Login</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label }}
+            {{ form.name() }}
+
+            {{ form.email.label }}
+            {{ form.email() }} <br/>
+
+            {{ form.password.label }}
+            {{ form.password() }} <br/>
+
+            {{ form.submit() }}
+        </form>
+            <input type="checkbox"> Lembrar de mim
+            <button>Entrar</button>
+            <button>Entrar com Google</button>
+        </div>
+    </div>
+    
+</body>
+</html>
