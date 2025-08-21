@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template 
-from forms import *
+from forms import LoginForm, SigninForm
+from model import Users, db
 
 bp = Blueprint('main', __name__)
 
@@ -13,30 +14,43 @@ def login():
         email = form.email.data
         form.email.data = ''
         form.password.data = ''
-        return f"Lofin recebido para{email}" # Placeholder para teste
+        return f"Login recebido para {email}" # Placeholder para teste
 
     return render_template('login.html',
         email = email,
         form = form)
 
 @bp.route('/signin', methods=['GET', 'POST'])
-def sinIn():
+def signin():
+    name = None
     email = None
     form = SigninForm()
 
         #validade form
     if form.validate_on_submit():
+        user = Users.query.filter_by(email=form.email.data).first()
+        if user is None:
+            new_user = Users(
+                name=form.name.data, 
+                email = form.email.data, 
+                password = form.password.data
+            )
+            db.session.add(new_user)
+            db.session.commit()
+
+        name = form.name.data 
         email = form.email.data
+
+        #clean
         form.name.data = ''
-        form.email.data = ''
+        form.email.data = ''    
         form.password.data = ''
-        return f"Lofin recebido para{email}" # Placeholder para teste
+        return f"Login recebido para{email}" # Placeholder para teste
 
     return render_template('Signin.html',
+        name = name,
         email = email,
         form = form)
-
-
 
 
 #invalid url error
@@ -46,5 +60,5 @@ def page_not_found(e):
 
 #internal server error
 @bp.errorhandler(500)
-def page_not_found(e):
+def server_error(e):
     return render_template("error.html"), 500

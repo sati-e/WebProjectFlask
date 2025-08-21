@@ -3,7 +3,7 @@ import mysql.connector
 connection = mysql.connector.connect(
     host='localhost',
     user='root',
-    passwd=''
+    passwd='S@t1lanh4v.a0484'
 )
 
 print("connection started")
@@ -18,9 +18,7 @@ dbCursor.execute("CREATE DATABASE IF NOT EXISTS users")
 dbCursor.execute("SHOW DATABASES")
 
 # close connection
-dbCursor.close()
-connection.close()
-print("connection closed")
+
 
 for db in dbCursor:
     print(db)
